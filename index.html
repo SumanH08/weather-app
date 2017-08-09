@@ -15,6 +15,8 @@
 
   <link rel="icon" href="img/weather-logo.png">
 
+  <script src="script.js"></script>
+
   <style>
     html {
       height: 100%;
@@ -32,10 +34,10 @@
       font-weight: normal;
     }
 
-    .form-control{
+    .form-control {
       border: none;
     }
-    .container{
+    .container {
       width: 720px;
     }
 
@@ -77,19 +79,19 @@
       margin-right: 6px;
       line-height: 0;
     }
-    .results{
+    .results {
       text-align: center;
       padding: 32px;
     }
-    .results i{
+    .results i {
       font-size: 64px;
       opacity: 0.5;
     }
-    .results span{
+    .results span {
       font-size: 24px;
       color: #FFFFFF;
     }
-    .results p{
+    .results p {
       opacity: 0.5;
     }
     .icon-wrapper {
@@ -104,7 +106,7 @@
 
 </head>
 
-<body>
+<body onload="onload()">
   <section class="container">
     <!-- Inner div first row to set margin only -->
     <div class="row" style="margin-top:90px;"></div>
@@ -122,10 +124,10 @@
     <div class="row">
       <div class="searchbar">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for.." />
+          <input type="text" id="city" class="form-control" placeholder="Search for.." onkeyup="checkDisableGet()"/>
           <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">Get</button>
-              </span>
+            <button class="btn btn-primary" type="button" id="getButton" onclick="readCity()" disabled>Get</button>
+          </span>
         </div>
       </div>
     </div>
