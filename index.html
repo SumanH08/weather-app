@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
   <link rel="icon" href="img/weather-logo.png">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
   <script src="script.js"></script>
 
   <style>
@@ -135,8 +136,8 @@
     <!--Inner div fourth row for results-->
     <div class="row text-center">
       <div class="prediction">
-        <p>Predictions for Bengaluru, India</p>
-        <p><i class="ion-cloud"></i>Mostly cloudy until tomorrow night.</p>
+        <p>Predictions for <span id="location">Bengaluru, India</span></p>
+        <p><i class="ion-cloud"></i><span id="prediction-text">Mostly cloudy until tomorrow night.</span></p>
       </div>
     </div>
 
