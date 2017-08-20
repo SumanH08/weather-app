@@ -5,6 +5,8 @@
 <head>
 
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>The Weather App</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -18,92 +20,7 @@
   </script>
   <script src="script.js"></script>
 
-  <style>
-    html {
-      height: 100%;
-      background: white;
-    }
-
-    body {
-      background: linear-gradient(60deg, #1383fb, #1de9b6);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    }
-
-    h1 {
-      font-size: 22px;
-      color: #FFFFFF;
-      font-weight: normal;
-    }
-
-    .form-control {
-      border: none;
-    }
-    .container {
-      width: 720px;
-    }
-
-    .logo {
-      padding: 15px;
-    }
-
-    .logo img {
-      width: 120px;
-      height: auto;
-    }
-
-    .searchbar .input-group {
-      max-width: 360px;
-      margin: auto;
-    }
-
-    .searchbar .btn.btn-primary {
-      color: #FFFFFF;
-      background-color: #F44336;
-      border: 1px solid #F44336;
-      background-image: none;
-    }
-
-    .prediction {
-      padding: 48px 48px 0 48px;
-    }
-
-    .prediction p:first-child {
-      color: rgba(0, 0, 0, 0.5);
-    }
-
-    .prediction p:last-child {
-      color: #FFF;
-    }
-
-    .prediction i {
-      font-size: 24px;
-      margin-right: 6px;
-      line-height: 0;
-    }
-    .results {
-      text-align: center;
-      padding: 32px;
-    }
-    .results i {
-      font-size: 64px;
-      opacity: 0.5;
-    }
-    .results span {
-      font-size: 24px;
-      color: #FFFFFF;
-    }
-    .results p {
-      opacity: 0.5;
-    }
-    .icon-wrapper {
-      width: 64px;
-      display: inline-block;
-      text-align: center;
-    }
-
-
-
-  </style>
+ <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -124,62 +41,21 @@
     <!--Inner div third row for search bar -->
     <div class="row">
       <div class="searchbar">
-        <div class="input-group">
-          <input type="text" id="city" class="form-control" placeholder="Search for.." onkeyup="checkDisableGet()"/>
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button" id="getButton" onclick="readCity()" disabled>Get</button>
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!--Inner div fourth row for results-->
-    <div class="row text-center">
-      <div class="prediction">
-        <p>Predictions for <span id="location">Bengaluru, India</span></p>
-        <p><i class="ion-cloud"></i><span id="prediction-text">Mostly cloudy until tomorrow night.</span></p>
-      </div>
-    </div>
-
-    <div class="results">
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="icon-wrapper"><i class="ion-thermometer"></i></div><span>21°C</span>
-          <p>Temperature</p>
-        </div>
-        <div class="col-md-4">
-          <div class="icon-wrapper"><i
-          class="ion-cloud"></i></div><span>15%</span>
-          <p>Cloud cover</p>
-        </div>
-        <div class="col-md-4">
-          <div class="icon-wrapper"><i
-          class="ion-waterdrop"></i></div><span>93%</span>
-          <p>Humidity</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="icon-wrapper"><i class="ion-eye"></i></div><span>16km</span>
-          <p>Visibility</p>
-        </div>
-        <div class="col-md-4">
-          <div class="icon-wrapper"><i
-          class="ion-umbrella"></i></div><span>0mm/hr</span>
-          <p>Precipitation</p>
-        </div>
-        <div class="col-md-4">
-          <div class="icon-wrapper">
-            <i class="ion-paper-airplane"></i>
+        <form id="weather-form">
+          <div class="input-group">
+            <input type="text" id="city" class="form-control" placeholder="Search for.." onkeyup="checkDisableGet()"/>
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary" id="getButton" disabled>Get</button>
+            </span>
           </div>
-          <span>5m/s</span>
-          <p>Wind speed</p>
-        </div>
+        </form>
       </div>
-
     </div>
+
+    <div class="weather-body text-center" style="margin-top: 48px">
+      <p>Search for a city to get started</p>
+    </div>
+
     <div class="row" style="height:90px;"></div>
 
   </section>

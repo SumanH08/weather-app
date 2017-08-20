@@ -1,0 +1,85 @@
+html {
+  height: 100%;
+  background: white;
+}
+
+body {
+  min-height: 100%;
+  background: linear-gradient(60deg, #1383fb, #1de9b6);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1 {
+  font-size: 22px;
+  color: #FFFFFF;
+  font-weight: normal;
+}
+
+.form-control {
+  border: none;
+}
+.container {
+  width: 720px;
+}
+
+.logo {
+  padding: 15px;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+.searchbar .input-group {
+  max-width: 360px;
+  margin: auto;
+}
+
+.searchbar .btn.btn-primary {
+  color: #FFFFFF;
+  background-color: #F44336;
+  border: 1px solid #F44336;
+  background-image: none;
+}
+
+.prediction p:first-child {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.prediction p:last-child {
+  color: #FFF;
+}
+
+.prediction i {
+  font-size: 24px;
+  margin-right: 6px;
+  line-height: 0;
+}
+.results {
+  text-align: center;
+  padding: 32px;
+}
+.results i {
+  font-size: 64px;
+  opacity: 0.5;
+}
+.results span {
+  font-size: 24px;
+  color: #FFFFFF;
+}
+.results p {
+  opacity: 0.5;
+}
+.icon-wrapper {
+  width: 64px;
+  display: inline-block;
+  text-align: center;
+}
+
+.danger{
+  background: #E53935;
+  color: white;
+  padding: 12px;
+  border-radius: 3px;
+}
