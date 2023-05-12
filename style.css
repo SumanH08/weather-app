@@ -47,6 +47,10 @@ h1 {
   color: rgba(0, 0, 0, 0.5);
 }
 
+#location {
+  font-size: 24px;
+}
+
 .prediction p:last-child {
   color: #FFF;
 }

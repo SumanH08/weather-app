@@ -25,7 +25,7 @@ function readCity() {
   var city = document.getElementById('city').value;
 
   $.ajax({
-    url: "https://instantweatherbot.herokuapp.com/location-query?q="+city
+    url: "https://katalogg.netlify.app/.netlify/functions/api/suman/weather?location="+city
   }).done(function(res) {
     renderResults(res);
   }).fail(function(jq, status, err){
@@ -34,28 +34,33 @@ function readCity() {
 }
 
 function renderResults(res) {
-  var weatherObj = JSON.parse(res);
+  var weatherObj = res;
+  if(!weatherObj) return;
   var location = weatherObj.location;
-  var prediction = weatherObj.weather.hourly.summary;
+  var prediction = weatherObj.current.condition.text;
 
-  var current = weatherObj.weather.currently;
-  var temp= current.temperature+"°C";
-  var cloudCover = ((current.cloudCover)*100).toFixed(2)+"%";
-  var humidity = (current.humidity*100)+"%";
-  var precipProbability = current.precipProbability;
-  var precipIntensity = current.precipIntensity.toFixed(2)+"mm/hr";
-  var windSpeed = current.windSpeed+"m/s";
+  var temp= weatherObj.current.temp_c+"°C";
+  var cloudCover = weatherObj.current.cloud+"%";
+  var humidity = weatherObj.current.humidity+"%";
+  var uvIndex = weatherObj.current.uv;
+  var windSpeed = weatherObj.current.wind_mph+" "+"m/s";
+  var iconClass = weatherObj.current.condition.icon;
+
+  const localDate = moment(location.localtime);
 
   // TODO: use for results
   // TODO: determine icon class
-  var iconClass = "ion-cloud";
-  if(prediction.includes('rain')) {
-    iconClass = "ion-rain"
-  }
+  // var iconClass = "ion-cloud";
+  // if(prediction.includes('rain')) {
+  //   iconClass = "ion-rain"
+  // } else if(prediction.includes('rain')) {
+     
+  // }
   $(".weather-body").html(`<div class="row text-center">
     <div class="prediction">
-      <p>Predictions for <span id="location">${location}</span></p>
-      <p><i id="icon" class="${iconClass}"></i><span id="prediction-text">${prediction}</span></p>
+      <p><span id="location">${location.name}</span></p>
+      <p>Local Time: <span>${localDate.format('DD MMM YYYY hh:mm a')}</span></p>
+      <p><img src=${iconClass+"?test=123"} alt="Italian Trulli"></i><span id="prediction-text">${prediction}</span></p>
     </div>
   </div>
 
@@ -79,13 +84,9 @@ function renderResults(res) {
 
   <div class="row">
     <div class="col-md-4">
-      <div class="icon-wrapper"><i class="ion-speedometer"></i></div><span id="precip-visible">${precipProbability}</span>
-      <p>Probability of rain</p>
-    </div>
-    <div class="col-md-4">
       <div class="icon-wrapper"><i
-      class="ion-umbrella"></i></div><span id="precip">${precipIntensity}</span>
-      <p>Precipitation</p>
+      class="ion-umbrella"></i></div><span id="precip">${uvIndex}</span>
+      <p>UV Index</p>
     </div>
     <div class="col-md-4">
       <div class="icon-wrapper">
